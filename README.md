@@ -3,72 +3,167 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snakista - Taste the Love, Spice the Life</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>Purple Café</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Poppins',sans-serif;background:#fdf6f9;color:#333}
-    header{background:#6a1b9a;color:#fff;padding:1.5em 1em;text-align:center}
-    nav{background:#4a148c;display:flex;justify-content:center;gap:2em;padding:.8em 0}
-    nav a{color:#fff;text-decoration:none;font-weight:600}
-    .hero{padding:3em 1em;text-align:center;background:url('https://images.unsplash.com/photo-1606851092094-d68ef3e5d90d') center/cover no-repeat;color:#fff}
-    .hero h1{font-size:2.8em;margin-bottom:.3em}
-    .section{padding:3em 1em;text-align:center}
-    .section h2{margin-bottom:1em}
-    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5em}
-    .card{background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.1);padding:1em;display:flex;flex-direction:column;align-items:center}
-    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
-    .card h3{margin:.8em 0 .3em;font-size:1.1em}
-    .btn{margin-top:auto;background:#6a1b9a;color:#fff;padding:.55em 1.2em;border-radius:5px;text-decoration:none;font-weight:600}
-    footer{background:#4a148c;color:#fff;padding:1.5em;text-align:center;margin-top:3em}
+    /* ---------- GLOBAL ---------- */
+    :root {
+      --fluoro-purple: #da00ff;
+      --fluoro-purple-light: #f75aff;
+      --bg-light: #f8edff;
+      --text-main: #3c096c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to bottom right, #f3e5f5, #e0bbff);
+      color: var(--text-main);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* ---------- HEADER & NAV ---------- */
+    header {
+      background: var(--fluoro-purple);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 { font-size: 1.8rem; margin: 0; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+    }
+    nav a:hover { background: var(--fluoro-purple-light); }
+
+    /* ---------- SECTIONS ---------- */
+    h2, h3 { text-align: center; margin: 0 0 1rem; }
+    section.section-container { margin: 3rem 0; }
+
+    /* ---------- MENU GRID ---------- */
+    .menu-section {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .item {
+      background: var(--bg-light);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .item h4 { margin: 0.6rem 0; font-size: 1rem; }
+    .item button {
+      background: var(--fluoro-purple);
+      color: #fff;
+      border: none;
+      padding: 0.5rem;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .item button:hover { background: var(--fluoro-purple-light); }
+
+    /* ---------- ABOUT & CONTACT ---------- */
+    .info-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #c700f2;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 4rem;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Snakista</h1>
-    <p>Taste the Love, Spice the Life</p>
+    <h1>Purple Café</h1>
+    <nav>
+      <a href="#coffee">Coffee</a>
+      <a href="#tea">Tea</a>
+      <a href="#desserts">Desserts</a>
+      <a href="#snacks">Snacks</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#bhel">Bhel & Mixes</a>
-    <a href="#namkeen">Bhujia & Namkeen</a>
-    <a href="#beverages">Beverages</a>
-    <a href="#combos">Combos</a>
-  </nav>
+  <main class="container">
+    <h2>Our Menu</h2>
 
-  <section class="hero">
-    <h1>Crunch • Sip • Repeat</h1>
-    <p>Your destination for irresistible dry & fresh snacks!</p>
-  </section>
+    <!-- 1. COFFEE (8 items) -->
+    <section id="coffee" class="section-container">
+      <h3>Coffee</h3>
+      <div class="menu-section">
+        <div class="item"><img src="https://source.unsplash.com/300x200/?cappuccino" alt="Cappuccino"><h4>Cappuccino</h4><a href="https://wa.me/917208731279?text=I%20want%20Cappuccino"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?latte" alt="Latte"><h4>Latte</h4><a href="https://wa.me/917208731279?text=I%20want%20Latte"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?espresso" alt="Espresso"><h4>Espresso</h4><a href="https://wa.me/917208731279?text=I%20want%20Espresso"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?mocha" alt="Mocha"><h4>Mocha</h4><a href="https://wa.me/917208731279?text=I%20want%20Mocha"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?iced-coffee" alt="Iced Coffee"><h4>Iced Coffee</h4><a href="https://wa.me/917208731279?text=I%20want%20Iced%20Coffee"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?cold-brew" alt="Cold Brew"><h4>Cold Brew</h4><a href="https://wa.me/917208731279?text=I%20want%20Cold%20Brew"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?americano" alt="Americano"><h4>Americano</h4><a href="https://wa.me/917208731279?text=I%20want%20Americano"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?macchiato" alt="Macchiato"><h4>Macchiato</h4><a href="https://wa.me/917208731279?text=I%20want%20Macchiato"><button>Order</button></a></div>
+      </div>
+    </section>
 
-  <!-- BHEL & MIXES -->
-  <section id="bhel" class="section">
-    <h2>Bhel & Mixes</h2>
-    <div class="products">
-      <div class="card"><img src="https://images.unsplash.com/photo-1601050690590-be1bfa311a12" alt="Shuka Bhel"><h3>Shuka Bhel</h3><p>₹25</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Shuka%20Bhel%20(₹25)" target="_blank">Order Now</a></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1612874742287-8526b5b6a39c" alt="Spicy Bhel"><h3>Spicy Bhel</h3><p>₹30</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Spicy%20Bhel%20(₹30)" target="_blank">Order Now</a></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d" alt="Mumbai Bhel"><h3>Mumbai Bhel</h3><p>₹35</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Mumbai%20Bhel%20(₹35)" target="_blank">Order Now</a></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Corn Chaat"><h3>Corn Chaat</h3><p>₹40</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Corn%20Chaat%20(₹40)" target="_blank">Order Now</a></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1563371351-db4f5a4f0878" alt="Soya Chivda"><h3>Soya Chivda</h3><p>₹30</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Soya%20Chivda%20(₹30)" target="_blank">Order Now</a></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1525755662778-989d0524087e" alt="Masala Murmura"><h3>Masala Murmura</h3><p>₹25</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Masala%20Murmura%20(₹25)" target="_blank">Order Now</a></div>
-    </div>
-  </section>
+    <!-- 2. TEA (7 items) -->
+    <section id="tea" class="section-container">
+      <h3>Tea</h3>
+      <div class="menu-section">
+        <div class="item"><img src="https://source.unsplash.com/300x200/?chai" alt="Masala Chai"><h4>Masala Chai</h4><a href="https://wa.me/917208731279?text=I%20want%20Masala%20Chai"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?green-tea" alt="Green Tea"><h4>Green Tea</h4><a href="https://wa.me/917208731279?text=I%20want%20Green%20Tea"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?black-tea" alt="Black Tea"><h4>Black Tea</h4><a href="https://wa.me/917208731279?text=I%20want%20Black%20Tea"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?lemon-tea" alt="Lemon Tea"><h4>Lemon Tea</h4><a href="https://wa.me/917208731279?text=I%20want%20Lemon%20Tea"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?herbal-tea" alt="Herbal Tea"><h4>Herbal Tea</h4><a href="https://wa.me/917208731279?text=I%20want%20Herbal%20Tea"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?oolong" alt="Oolong Tea"><h4>Oolong Tea</h4><a href="https://wa.me/917208731279?text=I%20want%20Oolong%20Tea"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?iced-tea" alt="Iced Tea"><h4>Iced Tea</h4><a href="https://wa.me/917208731279?text=I%20want%20Iced%20Tea"><button>Order</button></a></div>
+      </div>
+    </section>
 
-  <!-- BHUJIA & NAMKEEN -->
-  <section id="namkeen" class="section">
-    <h2>Bhujia & Namkeen</h2>
-    <div class="products">
-      <div class="card"><img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f" alt="Aloo Bhujia"><h3>Aloo Bhujia</h3><p>₹30</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Aloo%20Bhujia%20(₹30)" target="_blank">Order Now</a></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1611042553365-490bf6f3228d" alt="Moong Dal"><h3>Moong Dal</h3><p>₹40</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Moong%20Dal%20(₹40)" target="_blank">Order Now</a></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90" alt="Sev Mix"><h3>Sev Mix</h3><p>₹35</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Sev%20Mix%20(₹35)" target="_blank">Order Now</a></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1604079623834-490b75c0cec2" alt="Punjabi Tadka Mix"><h3>Punjabi Tadka Mix</h3><p>₹45</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Punjabi%20Tadka%20Mix%20(₹45)" target="_blank">Order Now</a></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Masala Peanuts"><h3>Masala Peanuts</h3><p>₹35</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Masala%20Peanuts%20(₹35)" target="_blank">Order Now</a></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1506086679525-eca07ce68773" alt="Khatta Meetha Mix"><h3>Khatta Meetha Mix</h3><p>₹30</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Khatta%20Meetha%20Mix%20(₹30)" target="_blank">Order Now</a></div>
-    </div>
-  </section>
+    <!-- 3. DESSERTS (7 items) -->
+    <section id="desserts" class="section-container">
+      <h3>Desserts</h3>
+      <div class="menu-section">
+        <div class="item"><img src="https://source.unsplash.com/300x200/?cake" alt="Chocolate Cake"><h4>Chocolate Cake</h4><a href="https://wa.me/917208731279?text=I%20want%20Chocolate%20Cake"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?cheesecake" alt="Cheesecake"><h4>Cheesecake</h4><a href="https://wa.me/917208731279?text=I%20want%20Cheesecake"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?donut" alt="Donut"><h4>Donut</h4><a href="https://wa.me/917208731279?text=I%20want%20Donut"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?muffin" alt="Muffin"><h4>Muffin</h4><a href="https://wa.me/917208731279?text=I%20want%20Muffin"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?ice-cream" alt="Ice Cream"><h4>Ice Cream</h4><a href="https://wa.me/917208731279?text=I%20want%20Ice%20Cream"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?tart" alt="Fruit Tart"><h4>Fruit Tart</h4><a href="https://wa.me/917208731279?text=I%20want%20Fruit%20Tart"><button>Order</button></a></div>
+        <div class="item"><img src="https://source.unsplash.com/300x200/?brownie" alt="Brownie"><h4>Brownie</h4><a href="https://wa.me/917208731279?text=I%20want%20Brownie"><button>Order</button></a></div>
+      </div>
+    </section>
 
-  <!-- BEVERAGES -->
-  <section id="beverages" class="section">
-    <h2>Beverages</h2>
-    <div class="products">
-      <div class="card"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Masala Chai"><h3>Masala Chai</h3><p>₹20</p><a class="btn" href="https://wa.me/917208731279?text=I%20want%20Mas
+    <!-- 4. SNACKS (8 items) -->
+    <section id="snacks" class="section-container">
+      <h3>Snacks</
